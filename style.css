@@ -84,7 +84,7 @@ section{
     width: 100%;
     display: flex;
     gap: 10px;
-    /* padding: 5px 2vw; */
+    padding: 5px 2vw;
 }
 
 .galleyColumn{
@@ -99,8 +99,8 @@ section{
     overflow: hidden;
     width: 100%;
     cursor: pointer;
-    animation: zoom 0.7s linear;
-    transition: 0.7s all ease-in-out;
+    /* animation: zoom 0.7s linear; */
+    /* transition: 0.7s all ease-in-out; */
     /* height: 300px;
     background: red; */
 }
@@ -109,29 +109,27 @@ section{
     transform: scale(0.9);
 } */
 
-/* .galleryFigure img{
+/* .galleryFigure .figImage img{
     width: 100%;
-    height: auto;
     object-fit: cover;
 } */
 
-.FigImage {
+.figImage {
     width: 100%;
     height: auto;
     display: flex;
-    background-image: url(https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80);
+    /* background-image: url(https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80); */
     /* background: linear-gradient(rgba(0, 0, 0, 0.425), rgba(0, 0, 0, 0.411)); */
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.425), rgba(0, 0, 0, 0.411)), url("https://images.unsplash.com/photo-1529655683826-aba9b3e77383?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"); */
     background-position: center;
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
     background-size: cover;
-}
+} 
 
 .imgOverlay{
     width: 100%;
-    height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.425), rgba(0, 0, 0, 0.411));
+    display: flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.267), rgba(0, 0, 0, 0.295));
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -139,11 +137,41 @@ section{
     transition: .6s all ease-in;
 }
 
-.FigImage:hover .imgOverlay{
+.figImage:hover .imgOverlay{
     opacity: 1;
     cursor: pointer;
 }
 
+/* *****************second attempt****************** */
+/* .figImage {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer; */
+    /* height: 300px;
+    background: red; */
+/* }
+
+.imgOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1616165b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.figImage:hover .imgOverlay{
+    opacity: 1;
+    cursor: pointer;
+} */
+
+/* ************************************************* */
 
 .caption {
     margin-top: 8px;

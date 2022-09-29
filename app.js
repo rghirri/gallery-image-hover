@@ -1,3 +1,81 @@
+const galleryContainer = document.querySelector(".galleryContainer");
+
+function generateGallery(columns, galleryImages) {
+    galleryContainer.innerHTML = '';
+
+let galleryColumnWrappers = {};
+
+for (let i = 0; i < columns; i++) {
+        galleryColumnWrappers[`column${i}`] = [];
+    }
+
+for (let i = 0; i < galleryImages.length; i++) {
+        const column = i % columns;
+        galleryColumnWrappers[`column${column}`].push(galleryImages[i]);
+    }
+
+for (let i = 0; i < columns; i++) {
+        let columnGallaryImages = galleryColumnWrappers[`column${i}`];
+        let columns = document.createElement('div');
+        columns.classList.add('galleyColumn');
+
+        columnGallaryImages.forEach(galleryImage => {
+            let galleryFigure = document.createElement('figure');
+          	galleryFigure.classList.add('galleryFigure');
+            galleryFigure.setAttribute("tabIndex", "0");
+            galleryFigure.setAttribute("Role", "button");
+            
+          
+		    let imageDiv = document.createElement('div');
+            imageDiv.classList.add('figImage');
+            imageDiv.style.backgroundImage = `url(${galleryImage.image})`;
+            // let image = document.createElement('img');
+            // image.src = galleryImage.image;
+            // image.alt = galleryImage.caption;
+            let imgOverlay = document.createElement('div');
+            imgOverlay.classList.add('imgOverlay');
+            let randomHeight = Math.floor(Math.random() * 400) + 350
+            imgOverlay.style.height = `${randomHeight}px`;                          
+
+            let caption = document.createElement('figcaption');
+            caption.classList.add('caption');
+            let figCapIcon = document.createElement('div');
+            figCapIcon.classList.add('caption-icon');
+            let figCapText = document.createElement('div');
+            figCapText.classList.add('caption-text');
+            let figCapParagraph = document.createElement('p');            
+            figCapParagraph.innerText = galleryImage.caption;
+            
+            imageDiv.appendChild(imgOverlay);
+            // imageDiv.append(image, imgOverlay);
+            caption.append(figCapIcon, figCapText);
+            figCapText.appendChild(figCapParagraph);
+            galleryFigure.append(imageDiv, caption);
+            columns.appendChild(galleryFigure);
+        });
+
+        galleryContainer.appendChild(columns);
+    }
+}
+
+generateGallery(3, gallery);
+
+let previousScreenSize = window.innerWidth;
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth < 600 && previousScreenSize >= 600) {
+        generateGallery(1, gallery);
+    }
+    else if (window.innerWidth >= 600 && window.innerWidth < 1000 && (previousScreenSize < 600 || previousScreenSize >= 1000)) {
+        generateGallery(2, gallery);
+    } else if (window.innerWidth >= 1000 && previousScreenSize < 1000) {
+        generateGallery(3, gallery);
+    }
+    previousScreenSize = window.innerWidth;
+ });
+
+
+// **********************************************************************************
 // const container = document.querySelector('.container');
 
 // function generateMasonryGrid(columns, posts) {
