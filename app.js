@@ -34,7 +34,7 @@ for (let i = 0; i < columns; i++) {
             // image.alt = galleryImage.caption;
             let imgOverlay = document.createElement('div');
             imgOverlay.classList.add('imgOverlay');
-            let randomHeight = Math.floor(Math.random() * 400) + 350
+            let randomHeight = Math.floor(Math.random() * 400) + 300
             imgOverlay.style.height = `${randomHeight}px`;                          
 
             let caption = document.createElement('figcaption');
